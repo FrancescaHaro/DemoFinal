@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="htpp://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+	
+	<div class = " row card-header">
+		
+			<div class="col">
+				<div class="font-weight-bold" th:text="${titulo}"></div>
+			</div>
+				
+		</div>
+		
+	<div class ="container"> 
+		<div class="card-body">
+		
+			<div class="card border-warning mb-3">
+						<div class="card-body text-warning">
+							<div class="form-group">
+						    	<label for="exampleInputPassword1">Praticipante</label>
+						    	<input th:value="${resultado.participante.nombre}" type="text" class="form-control" disabled='disabled'>
+						 	</div>
+						</div>
+					</div>
+		
+			<form th:action="@{/resultado/crear}" th:object="${resultado}" method="post">
+				  <div class="form-group">
+				    <label for="formGroupExampleInput">Puesto</label>
+				    <input th:field="*{puesto}" type="text" class="form-control" id="" placeholder="Ingresar Puesto">
+				  </div>
+				  
+				  <div class="form-group">
+				      <label for="inputPassword4">Fecha</label>
+				      <input type="date" th:field="*{fecha}" class="form-control" placeholder="Fecha" >
+				    </div>
+				  
+				  
+				  <button type="submit" class="btn btn-primary">Agregar</button>
+				</form>
+		
+		</div>
+	</div>
+	
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

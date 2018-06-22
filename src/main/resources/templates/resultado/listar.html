@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="htpp://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+	
+	<div class = " row card-header">
+		
+			<div class="col">
+				<div class="font-weight-bold" th:text="${titulo}"></div>
+			</div>
+			
+		</div>
+		
+		<div class ="container"> 
+		<div class="card-body">
+		
+			<table class="table table-striped table-dark">
+			  <thead>
+			    <tr>
+			      
+			      <th scope="col">Participante</th>
+			      <th scope="col">Puesto</th>
+			      <th scope="col">Puntos</th>
+			      <th scope="col">Fecha</th>
+		
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr th:each="resultado : ${resultados}">
+			      <td th:text ="${resultado.participante.nombre}"></td>
+			      <td th:text ="${resultado.puesto}"></td>
+			      <td th:text ="${resultado.puntaje}"></td>
+			      <td th:text ="${resultado.fecha}"></td>
+			      
+			  </tbody>
+			</table>
+			
+				
+			      
+			  </tbody>
+			</table>
+				
+		</div>
+	
+	</div>
+	
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="htpp://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+	
+	<div class = " row card-header">
+		
+			<div class="col">
+				<div class="font-weight-bold" th:text="${titulo}"></div>
+			</div>
+			
+			
+		</div>
+		
+	<div class ="container"> 
+		<div class="card-body">
+		
+			<form th:action="@{/participante/crear}" th:object="${participante}" method="post">
+				  <div class="form-group">
+				    <label for="formGroupExampleInput">TIU</label>
+				    <input th:field="*{tiu}" type="text" class="form-control" id="" placeholder="Ingresar TIU">
+				  </div>
+				  
+				  <div class="form-group">
+				    <label for="formGroupExampleInput">Nombre</label>
+				    <input th:field="*{nombre}" type="text" class="form-control" id="" placeholder="Ingresar Nombre">
+				  </div>
+
+				  <div class="form-group">
+					    <label for="sede" class="form-group">Sede</label>
+					    <div class="form-group">
+						    <select th:field="*{sede}"  class="form-control" id="exampleFormControlSelect1">
+				 			 <option value="Monterrico">Monterrico</option>
+						      <option value="Villa">Villa</option>
+						      <option value="San Isidro">San Isidro</option>
+						      <option value="San Miguel">San Miguel</option>
+						    </select>
+						</div>
+				  	</div>
+				  
+
+				  
+				  <button type="submit" class="btn btn-primary">Agregar</button>
+				</form>
+		
+		</div>
+	</div>
+	
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
